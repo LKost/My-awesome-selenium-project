@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30330.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitTestProject1", "NUnitTestProject1\NUnitTestProject1.csproj", "{E5CD9175-7811-4AFB-9261-246B5C93981B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDD_Specflow_Project", "BDD Specflow Project\BDD_Specflow_Project.csproj", "{CA9451CC-6DBC-4509-9E6E-122BEF36F95A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5CD9175-7811-4AFB-9261-246B5C93981B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5CD9175-7811-4AFB-9261-246B5C93981B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5CD9175-7811-4AFB-9261-246B5C93981B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5CD9175-7811-4AFB-9261-246B5C93981B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA9451CC-6DBC-4509-9E6E-122BEF36F95A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA9451CC-6DBC-4509-9E6E-122BEF36F95A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA9451CC-6DBC-4509-9E6E-122BEF36F95A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA9451CC-6DBC-4509-9E6E-122BEF36F95A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DFBD4C37-4C7E-46F6-AC04-2DB5F2591D72}
+	EndGlobalSection
+EndGlobal
