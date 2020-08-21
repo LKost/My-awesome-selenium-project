@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using NUnitTestProject1.Context;
+using NUnitTestProject1.Steps;
 using TechTalk.SpecFlow;
 
 namespace BDD_Specflow_Project
@@ -7,45 +7,36 @@ namespace BDD_Specflow_Project
     [Binding]
     class LoginFeatureDefinition
     {
+        private static string Url => "https://www.citrus.ua/";
 
-        //public LoginFeatureDefinition()
-        //{
-
-        //}
-
-        private static string URL => "https://www.citrus.ua/";
-
-        private BaseSteps _baseSteps;
-        private LoginStesps _loginStesps;
+        private readonly BaseSteps _baseSteps;
+        private readonly LoginSteps _loginSteps;
 
         public LoginFeatureDefinition()
         {
             _baseSteps = new BaseSteps();
-            _loginStesps = new LoginStesps();
+            _loginSteps = new LoginSteps();
         }
 
         [Given(@"I'm on login page")]
         public void GivenIMOnLoginPage()
         {
-            _baseSteps.NavigateToUrl(URL);
+            _baseSteps.NavigateToUrl(Url);
         }
 
         [When(@"I try to login with wrong credentials")]
         public void WhenITryToLoginWithWrongCredentials()
         {
-            _loginStesps.TypeEmail("");
+            _loginSteps.TypeEmail("");
         }
 
 
         [Then(@"I can see popup message with warning text '(.*)'")]
         public void ThenICanSeePopupMessageWithWarningText(string expectedText)
         {
-            _loginStesps.IsErrorMessageDisplayed().Should().BeTrue();
+            _loginSteps.IsErrorMessageDisplayed().Should().BeTrue();
 
             // check expectedText
         }
-
-
-
     }
 }

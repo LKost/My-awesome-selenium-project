@@ -1,4 +1,4 @@
-﻿using NUnitTestProject1.WebDriverManager;
+﻿using NUnitTestProject1.Core;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
@@ -8,7 +8,7 @@ namespace NUnitTestProject1.Pages
 {
     class QuadrocoptersPage : BasePage
     {
-        public SelectElement SortSelect => new SelectElement(WebDriverManager.WebDriverManager.Driver.FindElement(By.XPath("//*[@class='sort-select icon']")));
+        public SelectElement SortSelect => new SelectElement(WebDriverManager.Driver.FindElement(By.XPath("//*[@class='sort-select icon']")));
 
         [FindsBy(How = How.XPath, Using = "//*[@class='filter-block' and @data-f-group='producers']")]
         public IWebElement BrandFilter { get; private set; }

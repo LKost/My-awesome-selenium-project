@@ -1,12 +1,10 @@
-﻿using NUnitTestProject1.Utils;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
 namespace NUnitTestProject1.Pages
 {
     public class LoginPage : BasePage
     {
-        public LoginPage() : base() { }
         [FindsBy(How = How.XPath, Using = "//*[@id='auth-login']/form/input[@name='email']")]
         public IWebElement AuthEmail { get; private set; }
 

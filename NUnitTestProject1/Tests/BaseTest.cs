@@ -1,6 +1,6 @@
 ﻿using NLog;
 using NUnit.Framework;
-using static NUnitTestProject1.WebDriverManager.WebDriverManager;
+using static NUnitTestProject1.Core.WebDriverManager;
 
 namespace NUnitTestProject1.Tests
 {
