@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using NUnitTestProject1.Const;
-using NUnitTestProject1.Context;
+using NUnitTestProject1.Steps;
 using TechTalk.SpecFlow;
 
 namespace BDD_Specflow_Project
@@ -8,8 +8,8 @@ namespace BDD_Specflow_Project
     [Binding]
     class ScrollFeatureDefinition
     {
-        private BaseSteps _baseSteps;
-        private MainSteps _mainSteps;
+        private readonly BaseSteps _baseSteps;
+        private readonly MainSteps _mainSteps;
 
         public ScrollFeatureDefinition()
         {

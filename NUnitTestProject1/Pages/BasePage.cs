@@ -1,5 +1,4 @@
-﻿using NUnitTestProject1.WebDriverManager;
-using OpenQA.Selenium;
+﻿using NUnitTestProject1.Core;
 using SeleniumExtras.PageObjects;
 
 namespace NUnitTestProject1.Pages
@@ -8,7 +7,7 @@ namespace NUnitTestProject1.Pages
     {
         public BasePage()
         {
-            PageFactory.InitElements(WebDriverManager.WebDriverManager.Driver, this);
+            PageFactory.InitElements(WebDriverManager.Driver, this);
         }
     }
 }

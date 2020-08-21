@@ -1,4 +1,4 @@
-using NUnitTestProject1.WebDriverManager;
+using NUnitTestProject1.Core;
 using TechTalk.SpecFlow;
 
 namespace BDD_Specflow_Project
@@ -9,6 +9,8 @@ namespace BDD_Specflow_Project
         [BeforeScenario]
         public void Setup()
         {
+            //just for example
+            //WebDriverManager.Driver.Manage().Window.Maximize();
         }
 
         [AfterScenario]

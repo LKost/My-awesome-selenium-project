@@ -1,35 +1,35 @@
-﻿using NUnitTestProject1.Pages;
-using NUnitTestProject1.Utils;
+﻿using NUnitTestProject1.Core;
+using NUnitTestProject1.Pages;
 
-namespace NUnitTestProject1.Context
+namespace NUnitTestProject1.Steps
 {
-    public class LoginStesps
+    public class LoginSteps
     {
-        private LoginPage loginPage;
+        private readonly LoginPage _loginPage;
 
-        public LoginStesps()
+        public LoginSteps()
         {
-            loginPage = new LoginPage();
+            _loginPage = new LoginPage();
         }
 
         public bool IsLoginFieldDisplayed()
         {
-            return loginPage.AuthEmail.Displayed;
+            return _loginPage.AuthEmail.Displayed;
         }
 
         public void TypeEmail(string email)
         {
-            loginPage.AuthEmail.SendKeys(email);
+            _loginPage.AuthEmail.SendKeys(email);
         }
 
         public void TypePass(string pass)
         {
-            loginPage.AuthPass.SendKeys(pass);
+            _loginPage.AuthPass.SendKeys(pass);
         }
 
         public void clickOnSubmitButton()
         {
-            loginPage.SubmitButton.Click();
+            _loginPage.SubmitButton.Click();
         }
 
         public bool IsErrorMessageDisplayed()
@@ -39,7 +39,7 @@ namespace NUnitTestProject1.Context
 
         public string GetLoginErrorMessage()
         {
-            return loginPage.LoginError.Text;
+            return _loginPage.LoginError.Text;
         }
     }
 }

@@ -1,10 +1,9 @@
-﻿using NUnitTestProject1.Utils;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using System.Drawing;
 
-namespace NUnitTestProject1.WebDriverManager
+namespace NUnitTestProject1.Core
 {
     public class WebDriverManager
     {
@@ -21,14 +20,9 @@ namespace NUnitTestProject1.WebDriverManager
             return driver;
         }
 
-        public static void ScrollToElement(IWebElement element)
-        {
-            ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].scrollIntoView(false);", element);
-        }
-
         public static void HoverOver(IWebElement element)
         {
-            Actions action = new Actions(Driver);
+            var action = new Actions(Driver);
             action
                 .MoveToElement(element)
                 .Build()
@@ -43,10 +37,10 @@ namespace NUnitTestProject1.WebDriverManager
 
         public static int[] GetWindowSize()
         {
-            int[] dimention = new int[2];
-            dimention[0] = Driver.Manage().Window.Size.Width;
-            dimention[1] = Driver.Manage().Window.Size.Height;
-            return dimention;
+            var dimension = new int[2];
+            dimension[0] = Driver.Manage().Window.Size.Width;
+            dimension[1] = Driver.Manage().Window.Size.Height;
+            return dimension;
         }
 
         public void MoveAndClick(IWebElement element)

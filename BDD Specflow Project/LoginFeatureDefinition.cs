@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using NUnitTestProject1.Const;
-using NUnitTestProject1.Context;
+using NUnitTestProject1.Steps;
 using TechTalk.SpecFlow;
 
 namespace BDD_Specflow_Project
@@ -9,15 +9,15 @@ namespace BDD_Specflow_Project
     class LoginFeatureDefinition
     {
 
-        private BaseSteps _baseSteps;
-        private MainSteps _mainSteps;
-        private LoginStesps _loginStesps;
+        private readonly BaseSteps _baseSteps;
+        private readonly MainSteps _mainSteps;
+        private readonly LoginSteps _loginSteps;
 
         public LoginFeatureDefinition()
         {
             _baseSteps = new BaseSteps();
             _mainSteps = new MainSteps();
-            _loginStesps = new LoginStesps();
+            _loginSteps = new LoginSteps();
         }
 
         [Given(@"I'm on Main page")]
@@ -33,18 +33,18 @@ namespace BDD_Specflow_Project
             var pass = "1234567";
 
             _mainSteps.ClickOnSignIn();
-            _loginStesps.IsLoginFieldDisplayed().Should().BeTrue();
-            _loginStesps.TypeEmail(login);
-            _loginStesps.TypePass(pass);
-            _loginStesps.clickOnSubmitButton();
-        }
+            _loginSteps.IsLoginFieldDisplayed().Should().BeTrue();
+            _loginSteps.TypeEmail(login);
+            _loginSteps.TypePass(pass);
+            _loginSteps.clickOnSubmitButton();
 
+        }
 
         [Then(@"I can see popup message with warning text '(.*)'")]
         public void ThenICanSeePopupMessageWithWarningText(string expectedText)
         {
-            _loginStesps.IsErrorMessageDisplayed().Should().BeTrue();
-            _loginStesps.GetLoginErrorMessage().Should().Be(expectedText);
+            _loginSteps.IsErrorMessageDisplayed().Should().BeTrue();
+            _loginSteps.GetLoginErrorMessage().Should().Be(expectedText);
         }
     }
 }
