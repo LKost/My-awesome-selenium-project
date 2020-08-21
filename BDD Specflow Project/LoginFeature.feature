@@ -4,7 +4,7 @@
 	https://jira.com
 
 @mytag
-Scenario: Add two numbers
-	Given I'm on login page
+Scenario: Wrong credentials
+	Given I'm on Main page
 	When I try to login with wrong credentials 
-	Then I can see popup message with warning text 'Wrong password'
+	Then I can see popup message with warning text 'Ошибка'

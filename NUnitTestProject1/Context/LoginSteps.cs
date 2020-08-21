@@ -36,5 +36,10 @@ namespace NUnitTestProject1.Context
         {
             return WaitManager.IsDisplayedByXpathWithFluent("//*[@class='swal-title']");
         }
+
+        public string GetLoginErrorMessage()
+        {
+            return loginPage.LoginError.Text;
+        }
     }
 }

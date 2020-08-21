@@ -12,7 +12,7 @@ namespace BDD_Specflow_Project
         }
 
         [AfterScenario]
-        public void Test1()
+        public void AfterMethod()
         {
             WebDriverManager.CloseDriver();
         }

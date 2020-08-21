@@ -15,5 +15,9 @@ namespace NUnitTestProject1.Pages
 
         [FindsBy(How = How.XPath, Using = "//*[@id='auth-login']/form/*[@class='btn' and @type='submit']")]
         public IWebElement SubmitButton { get; private set; }
+
+
+        [FindsBy(How = How.ClassName, Using = "swal-title")]
+        public IWebElement LoginError { get; private set; }
     }
 }
