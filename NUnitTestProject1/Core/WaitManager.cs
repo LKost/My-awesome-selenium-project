@@ -1,8 +1,9 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
+using static NUnitTestProject1.Core.WebDriverManager;
 
-namespace NUnitTestProject1.Utils
+namespace NUnitTestProject1.Core
 {
     public class WaitManager 
     {
@@ -15,25 +16,29 @@ namespace NUnitTestProject1.Utils
 
         public static bool IsDisplayedByXpathWithFluent(string xpath, int seconds, int poolingMs)
         {
-            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(WebDriverManager.WebDriverManager.Driver);
-            fluentWait.Timeout = TimeSpan.FromSeconds(seconds);
-            fluentWait.PollingInterval = TimeSpan.FromMilliseconds(poolingMs);
+            var fluentWait = new DefaultWait<IWebDriver>(Driver)
+            {
+                Timeout = TimeSpan.FromSeconds(seconds), 
+                PollingInterval = TimeSpan.FromMilliseconds(poolingMs),
+                Message = "Element to be searched not found"
+            };
             fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
-            fluentWait.Message = "Element to be searched not found";
             return fluentWait.Until(x => x.FindElement(By.XPath(xpath)).Displayed);
         }
 
         [Obsolete]
-        public static IWebElement getExplisitElementBy(string xPath, int seconds)
+        public static IWebElement GetExplicitElementBy(string xPath, int seconds)
         {
-            WebDriverWait wait = new WebDriverWait(WebDriverManager.WebDriverManager.Driver, TimeSpan.FromSeconds(seconds));
+            var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(seconds));
             return wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xPath)));
         }
 
-        private void explicitWait(string xpath)
+        [Obsolete]
+        private IWebElement ExplicitWait(string xpath)
         {
-            WebDriverWait wait = new WebDriverWait(WebDriverManager.WebDriverManager.Driver, TimeSpan.FromSeconds(10));
-            IWebElement SearchResult = wait.Until(ExpectedConditions.ElementExists(By.XPath(xpath)));
+            var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            var result = wait.Until(ExpectedConditions.ElementExists(By.XPath(xpath)));
+            return result;
         }
     }
 }
