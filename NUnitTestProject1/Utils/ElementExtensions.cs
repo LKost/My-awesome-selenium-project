@@ -1,5 +1,7 @@
 ﻿using NUnitTestProject1.Core;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace NUnitTestProject1.Utils
 {
@@ -9,5 +11,14 @@ namespace NUnitTestProject1.Utils
         {
             ((IJavaScriptExecutor)WebDriverManager.Driver).ExecuteScript("arguments[0].scrollIntoView(false);", element);
         }
+
+        public static void HoverOver(this IWebElement element)
+        {
+            WebDriverManager.HoverOver(element);
+        }
+
+       
+
+
     }
 }

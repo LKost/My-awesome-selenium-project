@@ -42,9 +42,8 @@ namespace NUnitTestProject1.Steps
 
         public List<string> GetMiProductsTitle()
         {
-            //test version
-            Thread.Sleep(3000);
-            return QuadrocoptersPage.MiQuadrocopters.Select(x => x.Text).ToList(); ;
+            WaitManager.waitPageReady();
+            return QuadrocoptersPage.MiQuadrocopters.Select(x => x.Text).ToList();
         }
 
     }

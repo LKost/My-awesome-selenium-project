@@ -27,7 +27,6 @@ namespace NUnitTestProject1.Core
                 .MoveToElement(element)
                 .Build()
                 .Perform();
-            //action.MoveByOffset(500, 500).ContextClick().Perform();
         }
 
         public static void ChangeWindowSize(int width, int height)

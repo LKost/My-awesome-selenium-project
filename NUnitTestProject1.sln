@@ -7,6 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitTestProject1", "NUnitT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDD_Specflow_Project", "BDD Specflow Project\BDD_Specflow_Project.csproj", "{CA9451CC-6DBC-4509-9E6E-122BEF36F95A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0C676864-9B81-4634-8073-9545EF33E14D}"
+	ProjectSection(SolutionItems) = preProject
+		run.runsettings = run.runsettings
+		TestSettings1.testsettings = TestSettings1.testsettings
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -5,7 +5,7 @@
 	///...
 
 @mytag
-Scenario: Add two numbers
+Scenario: Verify quadrocopter filter
 	Given User is opening quadrocopters 'https://www.xiaomi.ua/quadrocopters-and-droids/' url
 	And click on Brand Filter
 	When user click on checkbox Mi

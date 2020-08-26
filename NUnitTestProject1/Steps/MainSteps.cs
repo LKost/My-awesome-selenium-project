@@ -39,7 +39,7 @@ namespace NUnitTestProject1.Steps
 
         public int GetCatalogItems()
         { 
-            return MainPage.CatalogItems.Where(x => x.Displayed).ToList().Count;
+            return MainPage.CatalogItems.Where(x => x.Displayed).Count();
         }
 
         public List<string> GetCatalogItemsTitles()
@@ -49,7 +49,7 @@ namespace NUnitTestProject1.Steps
 
         public void HoverOnTransportMenuItem()
         {
-            WebDriverManager.HoverOver(MainPage.TransportMenuItem);
+            MainPage.TransportMenuItem.HoverOver();
         }
 
         public void ClickOnQuadrocopterMenuItem()

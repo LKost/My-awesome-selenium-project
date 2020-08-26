@@ -40,5 +40,11 @@ namespace NUnitTestProject1.Core
             var result = wait.Until(ExpectedConditions.ElementExists(By.XPath(xpath)));
             return result;
         }
+
+        public static void waitPageReady()
+        {
+            var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            var result = wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
+        }
     }
 }
