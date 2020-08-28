@@ -2,9 +2,9 @@ name: .NET Core
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ feature/refactor-ielements ]
   pull_request:
-    branches: [ develop ]
+    branches: [ feature/refactor-ielements ]
 
 jobs:
   build:
