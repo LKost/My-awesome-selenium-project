@@ -11,7 +11,7 @@ namespace BDD_Specflow_Project
     {
 
         private readonly BaseSteps _baseSteps;
-        private int[] oldDimension;
+        private (int, int) _oldDimension;
 
         public DimensionFeatureDefinition()
         {
@@ -27,7 +27,7 @@ namespace BDD_Specflow_Project
         [Given(@"get dimension size of full screen")]
         public void GivenGetDimensionSizeOfFullScreen()
         {
-            oldDimension = WebDriverManager.GetWindowSize();
+            _oldDimension = WebDriverManager.GetWindowSize();
         }
 
         [When(@"I change dimention resolutun to custom")]
@@ -40,7 +40,7 @@ namespace BDD_Specflow_Project
         public void ThenResolutionShouldBeDiffereFromInitial()
         {
             var newDimension = WebDriverManager.GetWindowSize();
-            oldDimension.Should().NotBeEquivalentTo(newDimension);
+            _oldDimension.Should().NotBeSameAs(newDimension);
         }
     }
 }

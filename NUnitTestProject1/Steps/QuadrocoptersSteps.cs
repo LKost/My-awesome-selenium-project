@@ -1,15 +1,12 @@
 ﻿using NUnitTestProject1.Core;
 using NUnitTestProject1.Pages;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 
 namespace NUnitTestProject1.Steps
 {
-    public class QuadrocoptersSteps
+    public class QuadrocoptersSteps : BaseSteps
     {
 
         QuadrocoptersPage QuadrocoptersPage => new QuadrocoptersPage();
@@ -42,7 +39,7 @@ namespace NUnitTestProject1.Steps
 
         public List<string> GetMiProductsTitle()
         {
-            WaitManager.waitPageReady();
+            WaitManager.WaitPageReady();
             return QuadrocoptersPage.MiQuadrocopters.Select(x => x.Text).ToList();
         }
 

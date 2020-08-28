@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using NUnitTestProject1.Const;
 using NUnitTestProject1.Core;
 using NUnitTestProject1.Steps;
@@ -8,13 +7,13 @@ using System.Collections.Generic;
 namespace NUnitTestProject1.Tests
 {
     [TestFixture]
-    class TestClass : BaseTest
+    class TestClass2 : BaseTest
     {
         private readonly MainSteps _mainSteps;
         private readonly LoginSteps _loginSteps;
         private readonly QuadrocoptersSteps _quadrocoptersSteps;
 
-        public TestClass()
+        public TestClass2()
         {
             _mainSteps = new MainSteps();
             _loginSteps = new LoginSteps();
@@ -117,15 +116,16 @@ namespace NUnitTestProject1.Tests
         [Parallelizable(ParallelScope.Self)]
         public void CheckboxFilterTest()
         {
+            var quadrocopters = new QuadrocoptersSteps();
             var expectedQuadrocopters = new List<string>
             {
             "Квадрокоптер Xiaomi Mi Drone White", "Трикоптер Xiaomi YI Erida", "Квадрокоптер Xiaomi Mi Drone White 4K"
             };
 
             WebDriverManager.OpenUrl(Urls.Quadrocopters);
-            _quadrocoptersSteps.ClickOnBrandFilter();
-            _quadrocoptersSteps.ClickOnCheckboxMi();
-            _quadrocoptersSteps.GetMiProductsTitle().Should().BeEquivalentTo(expectedQuadrocopters, "Awesome message");
+            quadrocopters.ClickOnBrandFilter(); 
+            quadrocopters.ClickOnCheckboxMi();
+            Assert.AreEqual(expectedQuadrocopters, quadrocopters.GetMiProductsTitle());
         }
     }
 }
