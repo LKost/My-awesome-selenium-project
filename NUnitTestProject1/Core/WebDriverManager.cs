@@ -45,6 +45,7 @@ namespace NUnitTestProject1.Core
             if (pool.Value != null)
             {
                 pool.Value.Quit();
+                pool.Value.Dispose();
                 pool.Value = null;
             }
         }
