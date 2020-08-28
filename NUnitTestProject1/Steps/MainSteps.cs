@@ -1,4 +1,5 @@
-﻿using NUnitTestProject1.Pages;
+﻿using NUnitTestProject1.Core;
+using NUnitTestProject1.Pages;
 using NUnitTestProject1.Utils;
 using OpenQA.Selenium;
 using System.Collections.Generic;
@@ -6,59 +7,61 @@ using System.Linq;
 
 namespace NUnitTestProject1.Steps
 {
-    public class MainSteps
+    public class MainSteps : BaseSteps
     {
-        public MainPage MainPage => new MainPage();
+        public MainPage _mainPage => PageService.Main;
 
         public void ScrollToCopyright()
         {
-            MainPage.Copyright.ScrollToElement();
+            _mainPage.Copyright.ScrollToElement();
         }
 
         public string GetCopyrightText()
         {
-            return MainPage.Copyright.Text;
+            return _mainPage.Copyright.Text;
         }
 
         public void TypeIntoSearch(string value)
         {
-            MainPage.SearchField.SendKeys(value);
-            MainPage.SearchField.SendKeys(Keys.Enter);
+            _mainPage.SearchField.SendKeys(value);
+            _mainPage.SearchField.SendKeys(Keys.Enter);
         }
 
         public void ClickOnSignIn()
         {
-            MainPage.SignIn.Click();
+            _mainPage.SignIn.Click();
         }
 
         public string GetSignInText()
         {
-            return MainPage.SignIn.Text;
+            return _mainPage.SignIn.Text;
         }
 
         public int GetCatalogItems()
         { 
-            return MainPage.CatalogItems.Count(x => x.Displayed);
+            return _mainPage.CatalogItems.Count(x => x.Displayed);
         }
 
         public List<string> GetCatalogItemsTitles()
         {
-            return MainPage.CatalogItems.Where(x => x.Displayed).Select(x => x.Text).ToList();
+            return _mainPage.CatalogItems.Where(x => x.Displayed).Select(x => x.Text).ToList();
         }
 
-        public void HoverOnTransportMenuItem()
+        public void HoverOnTransportMenuAndClickItem()
         {
-            MainPage.TransportMenuItem.HoverOver();
+            _mainPage.TransportMenuItem.HoverOver();
+            Wait.Until(driver => _mainPage.QuadrocoptersMenuItem.Displayed);
         }
 
         public void ClickOnQuadrocopterMenuItem()
         {
-            MainPage.QuadrocoptersMenuItem.Click();
+            _mainPage.QuadrocoptersMenuItem.ActionClick();
+            WaitManager.WaitPageReady();
         }
 
         public void ClickOnLogo()
         {
-            MainPage.Logo.Click();
+            _mainPage.Logo.Click();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace NUnitTestProject1.Pages
 {
-    class QuadrocoptersPage : BasePage
+    public class QuadrocoptersPage
     {
         public SelectElement SortSelect => new SelectElement(WebDriverManager.Driver.FindElement(By.XPath("//*[@class='sort-select icon']")));
 

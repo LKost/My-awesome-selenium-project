@@ -22,7 +22,7 @@ namespace BDD_Specflow_Project
         [Given(@"User is opening quadrocopters '(.*)' url")]
         public void GivenUserIsOpeningQuadrocoptersUrl(string url)
         {
-            WebDriverManager.OpenUrl(url);
+            _baseSteps.NavigateToUrl(url);
         }
 
         [Given(@"click on Brand Filter")]

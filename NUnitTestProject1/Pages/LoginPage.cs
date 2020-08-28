@@ -3,7 +3,7 @@ using SeleniumExtras.PageObjects;
 
 namespace NUnitTestProject1.Pages
 {
-    public class LoginPage : BasePage
+    public class LoginPage
     {
         [FindsBy(How = How.XPath, Using = "//*[@id='auth-login']/form/input[@name='email']")]
         public IWebElement AuthEmail { get; private set; }

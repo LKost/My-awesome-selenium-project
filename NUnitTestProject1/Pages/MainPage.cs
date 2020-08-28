@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace NUnitTestProject1.Pages
 {
-    public class MainPage : BasePage
+    public class MainPage
     {
         [FindsBy(How = How.ClassName, Using = "main-logo")]
         public IWebElement Logo { get; private set; }
