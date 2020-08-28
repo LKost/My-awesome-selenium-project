@@ -5,12 +5,7 @@ namespace NUnitTestProject1.Steps
 {
     public class LoginSteps
     {
-        private readonly LoginPage _loginPage;
-
-        public LoginSteps()
-        {
-            _loginPage = new LoginPage();
-        }
+        private LoginPage _loginPage => new LoginPage();
 
         public bool IsLoginFieldDisplayed()
         {

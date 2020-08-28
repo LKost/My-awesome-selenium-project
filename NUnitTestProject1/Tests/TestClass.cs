@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using FluentAssertions;
+using NUnit.Framework;
 using NUnitTestProject1.Const;
 using NUnitTestProject1.Core;
 using NUnitTestProject1.Steps;
@@ -10,10 +11,14 @@ namespace NUnitTestProject1.Tests
     class TestClass : BaseTest
     {
         private readonly MainSteps _mainSteps;
+        private readonly LoginSteps _loginSteps;
+        private readonly QuadrocoptersSteps _quadrocoptersSteps;
 
         public TestClass()
         {
             _mainSteps = new MainSteps();
+            _loginSteps = new LoginSteps();
+            _quadrocoptersSteps = new QuadrocoptersSteps();
         }
 
         [Test]
@@ -32,13 +37,13 @@ namespace NUnitTestProject1.Tests
         [Parallelizable(ParallelScope.Self)]
         public void DimensionTest()
         {
-            int width = 600;
-            int height = 600;
+            var width = 600;
+            var height = 600;
             var oldDimension = WebDriverManager.GetWindowSize();
 
             WebDriverManager.OpenUrl(Urls.Base);
-            Logger.Info("Wingows Size width: {0}, height: {1}", oldDimension.Item1, oldDimension.Item2);
-            Logger.Info("Change Wingows Size width: {0}, height: {1}", width, height);
+            Logger.Info($"Window Size width: {oldDimension.Item1}, height: {oldDimension.Item2}");
+            Logger.Info($"Change Wingow Size width: {width}, height: {height}");
             WebDriverManager.ChangeWindowSize(600, 600);
             var newDimension = WebDriverManager.GetWindowSize();
             Assert.AreNotEqual(oldDimension, newDimension, "WindowSize doesn't changed");
@@ -48,50 +53,46 @@ namespace NUnitTestProject1.Tests
         [Parallelizable(ParallelScope.Self)]
         public void LoginTest()
         {
-            var mainSteps = new MainSteps();
-            var loginSteps = new LoginSteps();
             var login = "asdf@gmail.com";
             var pass = "1234567";
 
             WebDriverManager.OpenUrl(Urls.Base);
-            mainSteps.ClickOnSignIn();
-            Assert.True(loginSteps.IsLoginFieldDisplayed(), "Login field doesn't displayed");
-            loginSteps.TypeEmail(login);
-            loginSteps.TypePass(pass);
-            loginSteps.clickOnSubmitButton();
-            Assert.True(loginSteps.IsErrorMessageDisplayed(), "ErrorMessage doesn't displayed");
+            _mainSteps.ClickOnSignIn();
+            Assert.True(_loginSteps.IsLoginFieldDisplayed(), "Login field doesn't displayed");
+            _loginSteps.TypeEmail(login);
+            _loginSteps.TypePass(pass);
+            _loginSteps.clickOnSubmitButton();
+            Assert.True(_loginSteps.IsErrorMessageDisplayed(), "ErrorMessage doesn't displayed");
         }
 
         [Test]
         [Parallelizable(ParallelScope.Self)]
         public void MenuItemsTest()
         {
-            var mainSteps = new MainSteps();
-            int expectedItems = 10;
-            List<string> expectedMenuItems = new List<string>()
+            var expectedItems = 10;
+            var expectedMenuItems = new List<string>
              {
                   "Смартфоны, аксессуары", "Планшеты, Ноутбуки, Десктопы", "Батареи и аккумуляторы", "Часы, Фитнес-браслеты", "Хороший вкус", "Аудио", "ТВ, камеры, проекторы", "Smart devices", "Транспорт, дроны", "Еще больше"
              };
 
             WebDriverManager.OpenUrl(Urls.Base);
             Logger.Info("Verify number of categories");
-            Assert.AreEqual(mainSteps.GetCatalogItems(), expectedItems, "There are differ number of item");
+            Assert.AreEqual(_mainSteps.GetCatalogItems(), expectedItems, "There are differ number of item");
             Logger.Info("Verify titles");
-            Assert.AreEqual(expectedMenuItems, mainSteps.GetCatalogItemsTitles());
+            Assert.AreEqual(expectedMenuItems, _mainSteps.GetCatalogItemsTitles());
         }
 
         [Test]
         [Parallelizable(ParallelScope.Self)]
         public void HoverAndUrlTest()
         {
-            var mainSteps = new MainSteps();
             var expectedUrl = "quadrocopters-and-droids";
 
             WebDriverManager.OpenUrl(Urls.Base);
-            mainSteps.HoverOnTransportMenuItem();
-            mainSteps.ClickOnQuadrocopterMenuItem();
+            _mainSteps.HoverOnTransportMenuItem();
+            _mainSteps.ClickOnQuadrocopterMenuItem();
             Assert.True(WebDriverManager.GetUrl().Contains(expectedUrl), "Current URL doesn't contain expected text:" + expectedUrl);
-            mainSteps.ClickOnLogo();
+            _mainSteps.ClickOnLogo();
             Assert.AreEqual(Urls.Base, WebDriverManager.GetUrl());
         }
 
@@ -99,33 +100,32 @@ namespace NUnitTestProject1.Tests
         [Parallelizable(ParallelScope.Self)]
         public void SortDropdownTest()
         {
-            var quadrocopters = new QuadrocoptersSteps();
-            List<string> expectedMenuItems = new List<string>()
+            
+            var expectedMenuItems = new List<string>
             {
                 "По новизне" ,"Акции" ,"От дешевых к дорогим" ,"От дорогих к дешевым"
             };
             WebDriverManager.OpenUrl(Urls.Quadrocopters);
-            Assert.AreEqual(expectedMenuItems, quadrocopters.GetSortSelectOptions());
-            quadrocopters.SortBy("От дешевых к дорогим");
-            Assert.AreEqual("От дешевых к дорогим", quadrocopters.GetActiveOption());
-            quadrocopters.SortBy("Акции");
-            Assert.AreEqual("Акции", quadrocopters.GetActiveOption());
+            Assert.AreEqual(expectedMenuItems, _quadrocoptersSteps.GetSortSelectOptions());
+            _quadrocoptersSteps.SortBy("От дешевых к дорогим");
+            Assert.AreEqual("От дешевых к дорогим", _quadrocoptersSteps.GetActiveOption());
+            _quadrocoptersSteps.SortBy("Акции");
+            Assert.AreEqual("Акции", _quadrocoptersSteps.GetActiveOption());
         }
 
         [Test]
         [Parallelizable(ParallelScope.Self)]
         public void CheckboxFilterTest()
         {
-            var quadrocopters = new QuadrocoptersSteps();
-            List<string> expectedQuadrocopters = new List<string>()
+            var expectedQuadrocopters = new List<string>
             {
             "Квадрокоптер Xiaomi Mi Drone White", "Трикоптер Xiaomi YI Erida", "Квадрокоптер Xiaomi Mi Drone White 4K"
             };
 
             WebDriverManager.OpenUrl(Urls.Quadrocopters);
-            quadrocopters.ClickOnBrandFilter(); 
-            quadrocopters.ClickOnCheckboxMi();
-            Assert.AreEqual(expectedQuadrocopters, quadrocopters.GetMiProductsTitle());
+            _quadrocoptersSteps.ClickOnBrandFilter();
+            _quadrocoptersSteps.ClickOnCheckboxMi();
+            _quadrocoptersSteps.GetMiProductsTitle().Should().BeEquivalentTo(expectedQuadrocopters, "Awesome message");
         }
     }
 }

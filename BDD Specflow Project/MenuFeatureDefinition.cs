@@ -48,7 +48,7 @@ namespace BDD_Specflow_Project
         [Then(@"Items text should be equals with expected")]
         public void ThenItemsTextShouldBeEqualsWithExpected()
         {
-            List<string> expectedMenuItems = new List<string>()
+            var expectedMenuItems = new List<string>()
              {
                   "Смартфоны, аксессуары", "Планшеты, Ноутбуки, Десктопы", "Батареи и аккумуляторы", "Часы, Фитнес-браслеты", "Хороший вкус", "Аудио", "ТВ, камеры, проекторы", "Smart devices", "Транспорт, дроны", "Еще больше"
              };

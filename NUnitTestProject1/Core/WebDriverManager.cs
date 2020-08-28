@@ -16,7 +16,6 @@ namespace NUnitTestProject1.Core
         {
             IWebDriver driverProxy = new ChromeDriver();
             driverProxy.Manage().Window.Maximize();
-            pool.Value = driverProxy;
             return driverProxy;
         }
 
