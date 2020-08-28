@@ -11,7 +11,7 @@ namespace BDD_Specflow_Project
     {
 
         private readonly BaseSteps _baseSteps;
-        private int[] oldDimension;
+        private (int, int) oldDimension;
 
         public DimensionFeatureDefinition()
         {
@@ -40,7 +40,7 @@ namespace BDD_Specflow_Project
         public void ThenResolutionShouldBeDiffereFromInitial()
         {
             var newDimension = WebDriverManager.GetWindowSize();
-            oldDimension.Should().NotBeEquivalentTo(newDimension);
+            oldDimension.Should().NotBeSameAs(newDimension);
         }
     }
 }

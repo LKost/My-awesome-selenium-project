@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using FluentAssertions.Common;
 using NUnitTestProject1.Core;
 using NUnitTestProject1.Steps;
 using System.Collections.Generic;
@@ -43,7 +44,7 @@ namespace BDD_Specflow_Project
             {
             "Квадрокоптер Xiaomi Mi Drone White 4K", "Квадрокоптер Xiaomi Mi Drone White", "Трикоптер Xiaomi YI Erida"
             };
-            _quadrocopters.GetMiProductsTitle().Should().Equal(expectedQuadrocopters);
+            _quadrocopters.GetMiProductsTitle().Should().IsSameOrEqualTo(expectedQuadrocopters);
         }
 
     }

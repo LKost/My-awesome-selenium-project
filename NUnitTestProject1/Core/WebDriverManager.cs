@@ -1,32 +1,23 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Interactions;
 using System.Drawing;
+using System.Threading;
 
 namespace NUnitTestProject1.Core
 {
     public class WebDriverManager
     {
-        private static IWebDriver _driver;
 
-        public static IWebDriver Driver => _driver ??= SetWebDriver();
+        private static ThreadLocal<IWebDriver> pool = new ThreadLocal<IWebDriver>();
 
-        private static IWebDriver SetWebDriver()
+        public static IWebDriver Driver => pool.Value ??= CreateAndGetDriver();
+
+        private static IWebDriver CreateAndGetDriver()
         {
-            var options = new ChromeOptions();
-            options.AddArgument("start-maximized");
-            var driver = new ChromeDriver(options);
-            WaitManager.SetImplicitWait(driver, 20);
-            return driver;
-        }
-
-        public static void HoverOver(IWebElement element)
-        {
-            var action = new Actions(Driver);
-            action
-                .MoveToElement(element)
-                .Build()
-                .Perform();
+            IWebDriver driverProxy = new ChromeDriver();
+            driverProxy.Manage().Window.Maximize();
+            pool.Value = driverProxy;
+            return driverProxy;
         }
 
         public static void ChangeWindowSize(int width, int height)
@@ -34,21 +25,9 @@ namespace NUnitTestProject1.Core
             Driver.Manage().Window.Size = new Size(width, height);
         }
 
-        public static int[] GetWindowSize()
+        public static (int, int) GetWindowSize()
         {
-            var dimension = new int[2];
-            dimension[0] = Driver.Manage().Window.Size.Width;
-            dimension[1] = Driver.Manage().Window.Size.Height;
-            return dimension;
-        }
-
-        public void MoveAndClick(IWebElement element)
-        {
-            new Actions(Driver)
-                .MoveToElement(element)
-                .Click()
-                .Build()
-                .Perform();
+            return (Driver.Manage().Window.Size.Width, Driver.Manage().Window.Size.Height);
         }
 
         public static void OpenUrl(string url)
@@ -63,10 +42,10 @@ namespace NUnitTestProject1.Core
 
         public static void CloseDriver()
         {
-            if (_driver != null)
+            if (pool.Value != null)
             {
-                _driver.Quit();
-                _driver = null;
+                pool.Value.Quit();
+                pool.Value = null;
             }
         }
     }

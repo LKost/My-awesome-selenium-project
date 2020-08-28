@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Threading;
 using static NUnitTestProject1.Core.WebDriverManager;
 
 namespace NUnitTestProject1.Core
@@ -41,9 +42,10 @@ namespace NUnitTestProject1.Core
             return result;
         }
 
-        public static void waitPageReady()
+        public static void WaitPageReady()
         {
-            var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            Thread.Sleep(1000);
+            var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
             var result = wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
         }
     }

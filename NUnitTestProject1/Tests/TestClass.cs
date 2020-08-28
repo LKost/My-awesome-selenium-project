@@ -3,11 +3,11 @@ using NUnitTestProject1.Const;
 using NUnitTestProject1.Core;
 using NUnitTestProject1.Steps;
 using System.Collections.Generic;
-using System.Threading;
 
 namespace NUnitTestProject1.Tests
 {
     [TestFixture]
+    [Parallelizable(ParallelScope.All)]
     class TestClass : BaseTest
     {
         private readonly MainSteps _mainSteps;
@@ -18,6 +18,7 @@ namespace NUnitTestProject1.Tests
         }
 
         [Test]
+        //[Parallelizable(ParallelScope.Self)]
         public void ScrollTest()
         {
             var expectedCopyright = "2020";
@@ -29,6 +30,7 @@ namespace NUnitTestProject1.Tests
         }
 
         [Test]
+        //[Parallelizable(ParallelScope.Self)]
         public void DimensionTest()
         {
             int width = 600;
@@ -36,7 +38,7 @@ namespace NUnitTestProject1.Tests
             var oldDimension = WebDriverManager.GetWindowSize();
 
             WebDriverManager.OpenUrl(Urls.Base);
-            Logger.Info("Wingows Size width: {0}, height: {1}", oldDimension[0], oldDimension[1]);
+            Logger.Info("Wingows Size width: {0}, height: {1}", oldDimension.Item1, oldDimension.Item2);
             Logger.Info("Change Wingows Size width: {0}, height: {1}", width, height);
             WebDriverManager.ChangeWindowSize(600, 600);
             var newDimension = WebDriverManager.GetWindowSize();
@@ -44,6 +46,7 @@ namespace NUnitTestProject1.Tests
         }
 
         [Test]
+        //[Parallelizable(ParallelScope.Self)]
         public void LoginTest()
         {
             var mainSteps = new MainSteps();
@@ -113,7 +116,7 @@ namespace NUnitTestProject1.Tests
             var quadrocopters = new QuadrocoptersSteps();
             List<string> expectedQuadrocopters = new List<string>()
             {
-            "Квадрокоптер Xiaomi Mi Drone White 4K", "Квадрокоптер Xiaomi Mi Drone White", "Трикоптер Xiaomi YI Erida"
+            "Квадрокоптер Xiaomi Mi Drone White", "Трикоптер Xiaomi YI Erida", "Квадрокоптер Xiaomi Mi Drone White 4K"
             };
 
             WebDriverManager.OpenUrl(Urls.Quadrocopters);

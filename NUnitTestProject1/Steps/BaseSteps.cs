@@ -16,7 +16,7 @@ namespace NUnitTestProject1.Steps
         public void NavigateToUrl(string url)
         {
             Driver.Navigate().GoToUrl(url);
-        }
+        } 
     }
 }
 

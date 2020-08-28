@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TestRun id="01b8da33-9f1b-4eba-82db-5870356db356" name="Liubomyr_Kost@EPUALVIW007B 2020-08-26 12:55:00" runUser="KYIV\Liubomyr_Kost" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
-  <Times creation="2020-08-26T12:55:00.5403960+03:00" queuing="2020-08-26T12:55:00.5403960+03:00" start="2020-08-26T12:54:58.7616320+03:00" finish="2020-08-26T12:55:00.5403960+03:00" />
-  <TestSettings name="default" id="228a49f9-090f-40be-aa51-a73e1c476960">
-    <Deployment runDeploymentRoot="Liubomyr_Kost_EPUALVIW007B_2020-08-26_12_55_00" />
+<TestRun id="6be3a16a-42e6-4614-8b9f-2857195a239d" name="Liubomyr_Kost@EPUALVIW007B 2020-08-26 18:59:56" runUser="KYIV\Liubomyr_Kost" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2020-08-26T18:59:56.7313213+03:00" queuing="2020-08-26T18:59:56.7313213+03:00" start="2020-08-26T18:59:51.7271020+03:00" finish="2020-08-26T18:59:56.7313213+03:00" />
+  <TestSettings name="default" id="a4aec18e-1952-4c29-aee4-548c6646fd8c">
+    <Deployment runDeploymentRoot="Liubomyr_Kost_EPUALVIW007B_2020-08-26_18_59_56" />
   </TestSettings>
   <TestLists>
     <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
@@ -12,21 +12,21 @@
     <Counters total="0" executed="0" passed="0" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
     <Output>
       <StdOut>NUnit Adapter 3.17.0.0: Test execution started&#xD;
-Running selected tests in C:\C#\my-awesome-selenium-project-master\my-awesome-selenium-project-master\BDD Specflow Project\bin\Debug\netcoreapp3.1\BDD_Specflow_Project.dll&#xD;
+Running all tests in C:\C#\my-awesome-selenium-project-master\my-awesome-selenium-project-master\NUnitTestProject1\bin\Debug\netcoreapp3.1\NUnitTestProject1.dll&#xD;
 NUnit Adapter 3.17.0.0: Test execution complete&#xD;
 </StdOut>
     </Output>
     <RunInfos>
-      <RunInfo computerName="EPUALVIW007B" outcome="Warning" timestamp="2020-08-26T12:54:59.4366825+03:00">
+      <RunInfo computerName="EPUALVIW007B" outcome="Warning" timestamp="2020-08-26T18:59:53.4128726+03:00">
         <Text>Data collector 'Code Coverage' message: Cannot find CodeCoverage.exe..</Text>
       </RunInfo>
-      <RunInfo computerName="EPUALVIW007B" outcome="Warning" timestamp="2020-08-26T12:55:00.4042249+03:00">
+      <RunInfo computerName="EPUALVIW007B" outcome="Warning" timestamp="2020-08-26T18:59:56.1976494+03:00">
         <Text>Exception NUnit.Engine.NUnitEngineException, Exception thrown executing tests</Text>
       </RunInfo>
-      <RunInfo computerName="EPUALVIW007B" outcome="Warning" timestamp="2020-08-26T12:55:00.4042249+03:00">
+      <RunInfo computerName="EPUALVIW007B" outcome="Warning" timestamp="2020-08-26T18:59:56.1979233+03:00">
         <Text>The NUnit 3 driver encountered an error while executing reflected code.</Text>
       </RunInfo>
-      <RunInfo computerName="EPUALVIW007B" outcome="Warning" timestamp="2020-08-26T12:55:00.4081808+03:00">
+      <RunInfo computerName="EPUALVIW007B" outcome="Warning" timestamp="2020-08-26T18:59:56.2046535+03:00">
         <Text>   at NUnit.Engine.Drivers.NUnit3FrameworkDriver.CreateObject(String typeName, Object[] args)&#xD;
    at NUnit.Engine.Drivers.NUnit3FrameworkDriver.Load(String testAssemblyPath, IDictionary`2 settings)&#xD;
    at NUnit.Engine.Runners.DirectTestRunner.LoadDriver(IFrameworkDriver driver, String testFile, TestPackage subPackage)&#xD;
@@ -37,11 +37,14 @@ NUnit Adapter 3.17.0.0: Test execution complete&#xD;
    at NUnit.Engine.Runners.MasterTestRunner.Explore(TestFilter filter)&#xD;
    at NUnit.VisualStudio.TestAdapter.NUnitEngine.NUnitEngineAdapter.Explore(TestFilter filter) in D:\repos\NUnit\nunit3-vs-adapter\src\NUnitTestAdapter\NUnitEngine\NUnitEngineAdapter.cs:line 83&#xD;
    at NUnit.VisualStudio.TestAdapter.NUnit3TestExecutor.RunAssembly(String assemblyPath, IGrouping`2 testCases, TestFilter filter) in D:\repos\NUnit\nunit3-vs-adapter\src\NUnitTestAdapter\NUnit3TestExecutor.cs:line 293&#xD;
-   at NUnit.VisualStudio.TestAdapter.NUnit3TestExecutor.RunTests(IEnumerable`1 tests, IRunContext runContext, IFrameworkHandle frameworkHandle) in D:\repos\NUnit\nunit3-vs-adapter\src\NUnitTestAdapter\NUnit3TestExecutor.cs:line 158</Text>
+   at NUnit.VisualStudio.TestAdapter.NUnit3TestExecutor.RunTests(IEnumerable`1 sources, IRunContext runContext, IFrameworkHandle frameworkHandle) in D:\repos\NUnit\nunit3-vs-adapter\src\NUnitTestAdapter\NUnit3TestExecutor.cs:line 110</Text>
       </RunInfo>
-      <RunInfo computerName="EPUALVIW007B" outcome="Warning" timestamp="2020-08-26T12:55:00.4081808+03:00">
+      <RunInfo computerName="EPUALVIW007B" outcome="Warning" timestamp="2020-08-26T18:59:56.2054129+03:00">
         <Text>InnerException: System.InvalidCastException: Unable to cast transparent proxy to type 'System.Web.UI.ICallbackEventHandler'.&#xD;
    at NUnit.Framework.Api.FrameworkController.LoadTestsAction..ctor(FrameworkController controller, Object handler)</Text>
+      </RunInfo>
+      <RunInfo computerName="EPUALVIW007B" outcome="Warning" timestamp="2020-08-26T18:59:56.2166549+03:00">
+        <Text>No test matches the given testcase filter `FullyQualifiedName=NUnitTestProject1.Tests.TestClass.CheckboxFilterTest` in C:\C#\my-awesome-selenium-project-master\my-awesome-selenium-project-master\NUnitTestProject1\bin\Debug\netcoreapp3.1\NUnitTestProject1.dll</Text>
       </RunInfo>
     </RunInfos>
   </ResultSummary>

@@ -14,6 +14,7 @@ namespace NUnitTestProject1.Steps
 
         public bool IsLoginFieldDisplayed()
         {
+            WaitManager.WaitPageReady();
             return _loginPage.AuthEmail.Displayed;
         }
 
