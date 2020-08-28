@@ -4,6 +4,8 @@ using static NUnitTestProject1.Core.WebDriverManager;
 
 namespace NUnitTestProject1.Tests
 {
+
+    //[Parallelizable(ParallelScope.Fixtures)]
     public class BaseTest
     {
         protected static Logger Logger => LogManager.GetCurrentClassLogger();

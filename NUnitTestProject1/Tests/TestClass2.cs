@@ -7,17 +7,18 @@ using System.Collections.Generic;
 namespace NUnitTestProject1.Tests
 {
     [TestFixture]
-    class TestClass : BaseTest
+    [Parallelizable(ParallelScope.Fixtures)]
+    class TestClass2 : BaseTest
     {
         private readonly MainSteps _mainSteps;
 
-        public TestClass()
+        public TestClass2()
         {
             _mainSteps = new MainSteps();
         }
 
         [Test]
-        [Parallelizable(ParallelScope.Self)]
+        //[Parallelizable(ParallelScope.Self)]
         public void ScrollTest()
         {
             var expectedCopyright = "2020";
@@ -29,7 +30,7 @@ namespace NUnitTestProject1.Tests
         }
 
         [Test]
-        [Parallelizable(ParallelScope.Self)]
+        //[Parallelizable(ParallelScope.Self)]
         public void DimensionTest()
         {
             int width = 600;
@@ -45,7 +46,7 @@ namespace NUnitTestProject1.Tests
         }
 
         [Test]
-        [Parallelizable(ParallelScope.Self)]
+        //[Parallelizable(ParallelScope.Self)]
         public void LoginTest()
         {
             var mainSteps = new MainSteps();
@@ -63,7 +64,6 @@ namespace NUnitTestProject1.Tests
         }
 
         [Test]
-        [Parallelizable(ParallelScope.Self)]
         public void MenuItemsTest()
         {
             var mainSteps = new MainSteps();
@@ -81,7 +81,6 @@ namespace NUnitTestProject1.Tests
         }
 
         [Test]
-        [Parallelizable(ParallelScope.Self)]
         public void HoverAndUrlTest()
         {
             var mainSteps = new MainSteps();
@@ -96,7 +95,6 @@ namespace NUnitTestProject1.Tests
         }
 
         [Test]
-        [Parallelizable(ParallelScope.Self)]
         public void SortDropdownTest()
         {
             var quadrocopters = new QuadrocoptersSteps();
@@ -113,7 +111,6 @@ namespace NUnitTestProject1.Tests
         }
 
         [Test]
-        [Parallelizable(ParallelScope.Self)]
         public void CheckboxFilterTest()
         {
             var quadrocopters = new QuadrocoptersSteps();
@@ -127,5 +124,6 @@ namespace NUnitTestProject1.Tests
             quadrocopters.ClickOnCheckboxMi();
             Assert.AreEqual(expectedQuadrocopters, quadrocopters.GetMiProductsTitle());
         }
+
     }
 }
