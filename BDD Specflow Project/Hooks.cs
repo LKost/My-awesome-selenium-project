@@ -4,7 +4,7 @@ using TechTalk.SpecFlow;
 namespace BDD_Specflow_Project
 {
     [Binding]
-    public class Hooks
+    public sealed class Hooks
     {
         [BeforeScenario]
         public void Setup()
