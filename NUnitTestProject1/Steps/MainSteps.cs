@@ -1,5 +1,4 @@
-﻿using NUnitTestProject1.Core;
-using NUnitTestProject1.Pages;
+﻿using NUnitTestProject1.Pages;
 using NUnitTestProject1.Utils;
 using OpenQA.Selenium;
 using System.Collections.Generic;
@@ -39,7 +38,7 @@ namespace NUnitTestProject1.Steps
 
         public int GetCatalogItems()
         { 
-            return MainPage.CatalogItems.Where(x => x.Displayed).Count();
+            return MainPage.CatalogItems.Count(x => x.Displayed);
         }
 
         public List<string> GetCatalogItemsTitles()
