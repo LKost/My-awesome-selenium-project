@@ -13,27 +13,18 @@ jobs:
     steps:
     
     - uses: actions/checkout@v2
-      
-    - name: check chrome version
-      run: wmic datafile where name="C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe" get Version /value
-      
-#    - name: install new version of chromedriver
-#      run: sudo apt-get --only-upgrade install=85.0.4183.83-1
-#      
-#    - name: check chrome version2
-#      run: google-chrome --version  
-#  
-#    - name: Setup .NET Core
-#      uses: actions/setup-dotnet@v1
-#      with:
-#        dotnet-version: 3.1.301
-#    - name: Install dependencies
-#      run: dotnet restore
-#    - name: setup-chromedriver
-#      uses: nanasess/setup-chromedriver@v1.0.1
-#      with: 
-#        chromedriver-version: '84.0.4147.30'
-#    - name: Build
-#      run: dotnet build --configuration Release --no-restore
-#    - name: Test
-#      run: dotnet test --no-restore --verbosity normal
+  
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies
+      run: dotnet restore
+    - name: setup-chromedriver
+      uses: nanasess/setup-chromedriver@v1.0.1
+      with: 
+        chromedriver-version: '84.0.4147.30'
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
