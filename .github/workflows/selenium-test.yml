@@ -18,9 +18,9 @@ jobs:
       run: google-chrome --version
       
     - name: install new version of chromedriver
-      run: apt-get install google-chrome-stable
+      run: sudo apt-get install google-chrome-stable
       
-    - name: check chrome version
+    - name: check chrome version2
       run: google-chrome --version  
 #  
 #    - name: Setup .NET Core
