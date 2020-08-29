@@ -21,7 +21,7 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: setup-chromedriver
-      uses: nanasess/setup-chromedriver@develop
+      uses: nanasess/setup-chromedriver@v1.0.1
       with: 
         chromedriver-version: '85.0.4183.87'
     - name: Build
