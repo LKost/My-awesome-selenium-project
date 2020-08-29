@@ -38,7 +38,7 @@ namespace NUnitTestProject1.Steps
         }
 
         public int GetCatalogItems()
-        { 
+        {
             return _mainPage.CatalogItems.Count(x => x.Displayed);
         }
 

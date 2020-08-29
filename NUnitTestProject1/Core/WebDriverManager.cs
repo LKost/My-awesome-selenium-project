@@ -18,7 +18,9 @@ namespace NUnitTestProject1.Core
             chromeOptions.AddArguments("--no-sandbox");
             chromeOptions.AddArguments("--disable-dev-shm-usage");
             chromeOptions.AddArguments("--headless");
-            return new ChromeDriver(chromeOptions);
+            ChromeDriver driver = new ChromeDriver(chromeOptions);
+            driver.Manage().Window.Size = new Size(1936, 1056);
+            return driver;
         }
 
         public static void ChangeWindowSize(int width, int height)

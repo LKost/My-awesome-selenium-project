@@ -3,6 +3,7 @@ using NUnit.Framework;
 using NUnitTestProject1.Const;
 using NUnitTestProject1.Core;
 using NUnitTestProject1.Steps;
+using System;
 using System.Collections.Generic;
 
 
@@ -83,7 +84,7 @@ namespace NUnitTestProject1.Tests
 
             _mainSteps.NavigateToUrl(Urls.Base);
             Logger.Info("Verify number of categories");
-            Assert.AreEqual(_mainSteps.GetCatalogItems(), expectedItems, "There are differ number of item");
+            Assert.AreEqual(expectedItems, _mainSteps.GetCatalogItems(), "There are differ number of item");
             Logger.Info("Verify titles");
             Assert.AreEqual(expectedMenuItems, _mainSteps.GetCatalogItemsTitles());
         }
