@@ -7,7 +7,7 @@ on:
     branches: [ develop ]
 
 jobs:
-  Build:
+  intit_build:
 
     runs-on: windows-latest
     steps:
@@ -21,10 +21,10 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: setup-chromedriver
-      uses: nanasess/setup-chromedriver@v1.0.1
-      with: 
-        chromedriver-version: '84.0.4147.30'
+      uses: nanasess/setup-chromedriver@835cae695490330a7e390033b2b5bd67e6f8055e
+      
     - name: Build
       run: dotnet build --configuration Release --no-restore
+      
     - name: Test
       run: dotnet test --no-restore --verbosity normal
