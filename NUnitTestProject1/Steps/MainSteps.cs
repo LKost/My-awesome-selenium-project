@@ -37,7 +37,7 @@ namespace NUnitTestProject1.Steps
             return _mainPage.SignIn.Text;
         }
 
-        public int GetCatalogItems()
+        public int GetCatalogItems() 
         {
             return _mainPage.CatalogItems.Count(x => x.Displayed);
         }
