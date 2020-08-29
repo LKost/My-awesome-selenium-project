@@ -14,16 +14,16 @@ jobs:
     
     - uses: actions/checkout@v2
       
-#    - name: Setup .NET Core
-#      uses: actions/setup-dotnet@v1
-#      with:
-#        dotnet-version: 3.1.301
-#    - name: Install dependencies
-#      run: dotnet restore
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies
+      run: dotnet restore
     - name: setup-chromedriver
       uses: nanasess/setup-chromedriver@v1.0.1
       with: 
-        chromedriver-version: '85.0.4183.87'
+        chromedriver-version: '84.0.4147.30'
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
