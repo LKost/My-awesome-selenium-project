@@ -19,6 +19,9 @@ jobs:
       run : google-chrome --version
     - name : update chrome
       run : sudo apt-get upgrade google-chrome-stable -y
+    - name : check version chromedriver
+      run : google-chrome --version
+      
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
