@@ -18,7 +18,7 @@ jobs:
       run: google-chrome --version
       
     - name: install new version of chromedriver
-      run: sudo apt-get install google-chrome-stable=85.0.4183.83-1
+      run: sudo apt-get --only-upgrade install=85.0.4183.83-1
       
     - name: check chrome version2
       run: google-chrome --version  
