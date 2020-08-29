@@ -7,20 +7,23 @@ on:
     branches: [ develop ]
 
 jobs:
-  build:
+  init_build:
 
     runs-on: ubuntu-latest
-
     steps:
     
     - uses: actions/checkout@v2
-      
     - name : check version chromedriver
       run : google-chrome --version
     - name : update chrome
       run : sudo apt-get upgrade google-chrome-stable -y
     - name : check version chromedriver
       run : google-chrome --version
+      
+  build:
+    needs : [init_build]
+    runs-on: ubuntu-latest
+    steps:
       
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
