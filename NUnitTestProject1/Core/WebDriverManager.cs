@@ -14,7 +14,7 @@ namespace NUnitTestProject1.Core
         private static IWebDriver CreateAndGetDriver()
         {
             ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.AddArguments("--start-maximized");
+            //chromeOptions.AddArguments("--start-maximized");
             chromeOptions.AddArguments("--no-sandbox");
             chromeOptions.AddArguments("--disable-dev-shm-usage");
             chromeOptions.AddArguments("--headless");

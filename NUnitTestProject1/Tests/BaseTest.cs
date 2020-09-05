@@ -5,8 +5,6 @@ using static NUnitTestProject1.Core.WebDriverManager;
 
 namespace NUnitTestProject1.Tests
 {
-
-    //[Parallelizable(ParallelScope.Fixtures)]
     public class BaseTest : IDisposable
     {
         protected static Logger Logger => LogManager.GetCurrentClassLogger();
@@ -14,7 +12,7 @@ namespace NUnitTestProject1.Tests
         [SetUp]
         public void TestInitialize()
         {
-            
+           
         }
 
         [TearDown]

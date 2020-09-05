@@ -9,7 +9,7 @@ namespace NUnitTestProject1.Steps
     public class QuadrocoptersSteps : BaseSteps
     {
 
-        QuadrocoptersPage _quadrocoptersPage => PageService.Quadrocopters;
+        QuadrocoptersPage _quadrocoptersPage => PageService.GetPage<QuadrocoptersPage>();
 
         public IWebDriver Driver { get; private set; }
 

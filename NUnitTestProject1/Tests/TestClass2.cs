@@ -1,20 +1,23 @@
-﻿using NUnit.Framework;
-using NUnitTestProject1.Steps;
+﻿using FluentAssertions;
+using NUnit.Framework;
+using System;
 
 namespace NUnitTestProject1.Tests
 {
     [TestFixture]
-    class TestClass2 : BaseTest
+    class TestClass2
     {
-        private readonly MainSteps _mainSteps;
-        private readonly LoginSteps _loginSteps;
-        private readonly QuadrocoptersSteps _quadrocoptersSteps;
+     
 
-        public TestClass2()
+        [Test]
+        public void SimpleTestForSettings()
         {
-            _mainSteps = new MainSteps();
-            _loginSteps = new LoginSteps();
-            _quadrocoptersSteps = new QuadrocoptersSteps();
+            int number = 2;
+
+            Console.WriteLine("Square of " + number);
+            (number * number).Should().Be(4, "simple mathematics logic is broken");
+
         }
+
     }
 }

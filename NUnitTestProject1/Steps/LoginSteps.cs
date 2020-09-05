@@ -5,7 +5,7 @@ namespace NUnitTestProject1.Steps
 {
     public class LoginSteps : BaseSteps
     {
-        private LoginPage _loginPage => PageService.Login;
+        private LoginPage _loginPage => PageService.GetPage<LoginPage>();
 
         public bool IsLoginFieldDisplayed()
         {

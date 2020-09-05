@@ -9,7 +9,7 @@ namespace NUnitTestProject1.Steps
 {
     public class MainSteps : BaseSteps
     {
-        public MainPage _mainPage => PageService.Main;
+        public MainPage _mainPage => PageService.GetPage<MainPage>();
 
         public void ScrollToCopyright()
         {

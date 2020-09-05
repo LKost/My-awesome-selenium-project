@@ -3,14 +3,12 @@ using NUnit.Framework;
 using NUnitTestProject1.Const;
 using NUnitTestProject1.Core;
 using NUnitTestProject1.Steps;
-using System;
 using System.Collections.Generic;
 
 
 namespace NUnitTestProject1.Tests
 {
     [TestFixture]
-    //[Parallelizable(ParallelScope.All)]
     class TestClass : BaseTest
     {
         private readonly MainSteps _mainSteps;
@@ -41,7 +39,7 @@ namespace NUnitTestProject1.Tests
             var width = 600;
             var height = 600;
             var oldDimension = WebDriverManager.GetWindowSize();
-
+            Logger.Info("testLogger !!!!!!");
             _mainSteps.NavigateToUrl(Urls.Base);
             Logger.Info($"Window Size width: {oldDimension.Item1}, height: {oldDimension.Item2}");
             Logger.Info($"Change Wingow Size width: {width}, height: {height}");
