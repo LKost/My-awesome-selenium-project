@@ -1,4 +1,4 @@
-name: .NET Core
+name: Build project and run unit tests
 
 on:
   push:
@@ -7,24 +7,20 @@ on:
     branches: [ develop ]
 
 jobs:
-  intit_build:
+  build:
 
-    runs-on: windows-latest
+    runs-on: [windows-latest]
+
     steps:
-    
     - uses: actions/checkout@v2
-  
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.301
-    - name: Install dependencies
-      run: dotnet restore
-    - name: setup-chromedriver
-      uses: nanasess/setup-chromedriver@835cae695490330a7e390033b2b5bd67e6f8055e
-      
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-      
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
+        dotnet-version: 3.1
+    - name: Build with dotnet
+      run: dotnet build --configuration Release
+    - name: Run tests
+      run: dotnet test --configuration Release
+    
