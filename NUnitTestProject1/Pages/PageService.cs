@@ -1,5 +1,5 @@
 ﻿using NUnitTestProject1.Core;
-using NUnitTestProject1.Core.Elemens;
+using NUnitTestProject1.Core.AAACore;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -12,7 +12,8 @@ namespace NUnitTestProject1.Pages
         {
             var page = new T();
             IWebDriver driver = WebDriverManager.Driver;
-            PageFactory.InitElements(driver, page, new CustomPageObjectDecorator(driver));
+            var test = new AFieldDecorator();
+            PageFactory.InitElements(driver, page, test);
             //PageFactory.InitElements(driver, page);
             return page;
         }
