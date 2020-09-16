@@ -3,9 +3,9 @@ using NUnitTestProject1.Pages;
 
 namespace NUnitTestProject1.Steps
 {
-    public class LoginSteps
+    public class LoginSteps : BaseSteps
     {
-        private LoginPage _loginPage => new LoginPage();
+        private LoginPage _loginPage => PageService.GetPage<LoginPage>();
 
         public bool IsLoginFieldDisplayed()
         {

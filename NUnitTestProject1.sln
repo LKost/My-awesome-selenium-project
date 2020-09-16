@@ -10,7 +10,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0C676864-9B81-4634-8073-9545EF33E14D}"
 	ProjectSection(SolutionItems) = preProject
 		run.runsettings = run.runsettings
-		TestSettings.testsettings = TestSettings.testsettings
 	EndProjectSection
 EndProject
 Global

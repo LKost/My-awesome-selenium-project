@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnitTestProject1.Core.AAACore;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 using System.Collections.Generic;
 
@@ -16,7 +17,7 @@ namespace NUnitTestProject1.Pages
         public IWebElement SignIn { get; private set; }
 
         [FindsBy(How = How.ClassName, Using = "copyright")]
-        public IWebElement Copyright { get; private set; }
+        public AButton Copyright { get; private set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@class='catalog-block']/span")]
         public IList<IWebElement> CatalogItems { get; private set; }

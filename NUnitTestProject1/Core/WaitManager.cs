@@ -27,21 +27,6 @@ namespace NUnitTestProject1.Core
             return fluentWait.Until(x => x.FindElement(By.XPath(xpath)).Displayed);
         }
 
-        [Obsolete]
-        public static IWebElement GetExplicitElementBy(string xPath, int seconds)
-        {
-            var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(seconds));
-            return wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xPath)));
-        }
-
-        [Obsolete]
-        private IWebElement ExplicitWait(string xpath)
-        {
-            var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            var result = wait.Until(ExpectedConditions.ElementExists(By.XPath(xpath)));
-            return result;
-        }
-
         public static void WaitPageReady()
         {
             Thread.Sleep(1000);

@@ -19,5 +19,14 @@ namespace NUnitTestProject1.Utils
                 .Build()
                 .Perform();
         }
+
+        public static void ActionClick(this IWebElement element)
+        {
+            var action = new Actions(Driver);
+            action
+                .Click(element)
+                .Build()
+                .Perform();
+        }
     }
 }
